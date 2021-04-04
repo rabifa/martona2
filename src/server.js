@@ -4,7 +4,7 @@ const server = express()
 // request, response
 server.get('/', (req, res) => {
     console.log('enter index')
-    return res.send('WORKING!!!')
+    return res.sendFile(__dirname + "/views/index.html")
 })
 
 // create server
