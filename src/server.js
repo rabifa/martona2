@@ -2,7 +2,7 @@ const express = require("express")
 const server = express()
 const routes = require("./routes")
 
-// ejs config
+// ejs (tamplete engine) config
 server.set('view engine', 'ejs')
 
 // anable statics files
