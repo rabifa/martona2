@@ -3,8 +3,7 @@ const server = express()
 
 // request, response
 server.get('/', (req, res) => {
-    console.log('enter index')
-    return res.sendFile(__dirname + "/views/index.html")
+  return res.sendFile(__dirname + "/views/index.html")
 })
 
 // create server
