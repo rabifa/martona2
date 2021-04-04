@@ -2,6 +2,9 @@ const express = require("express")
 const server = express()
 const routes = require("./routes")
 
+// ejs config
+server.set('view engine', 'ejs')
+
 // anable statics files
 server.use(express.static("public"))
 
