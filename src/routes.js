@@ -23,10 +23,30 @@ const Profile = {
 
     update(req, res) {
       // req.body to receive the form
+      const data = req.body
+
       // define weeks per year
+      const weeksPerYear = 52
+
       // remove weeks from vacarions
-      // hours per week i'm working
+      const weeksPerMonth = (weeksPerYear - data["vacation-per-year"]) / 12
+
+      // total hours worked er week
+      const weekTotalHours = data["hours-per-day"] * data["days-per-week"]
+
       // total hours worked per mounth
+      const mounthlyTotalHours = weekTotalHours * weeksPerMonth
+
+      // value of my hour
+      const valueHour = data["value-hour"] = data["monthly-budget"] / mounthlyTotalHours
+
+      Profile.data = {
+        ...Profile.data,
+        ...req.body,
+        "value-hour": valueHour
+      }
+
+      return res.redirect('/profile')
     }
   }
   
