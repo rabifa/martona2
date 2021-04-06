@@ -9,7 +9,7 @@ server.set('view engine', 'ejs')
 server.use(express.static("public"))
 
 // use req.body
-server.use(express.urlencoded())
+server.use(express.urlencoded( {extended: true}))
 
 // routes
 server.use(routes)
