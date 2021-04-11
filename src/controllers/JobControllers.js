@@ -1,11 +1,12 @@
 const Profile = require('../model/Profile')
 const Job = require('../model/Job')
-const Util = require('../util/jobUtils')
+const Util = require('../utils/jobUtils')
 
 module.exports = {
   index(req, res) {
-    const updatedJobs = Job.data.map((job) => {
-      const remaining = Job.services.remainingDays(job)
+    const Jobs = Job.get()
+    const updatedJobs = Jobs.map((job) => {
+      const remaining = Util.remainingDays(job)
       const status = remaining <= 0 ? 'done' : 'progress'
     
       return {
