@@ -7,7 +7,7 @@ module.exports = {
     const jobs = Job.get()
     const profile = Profile.get()
 
-    const statusCount = {
+    let statusCount = {
       progress: 0,
       done: 0,
       total: jobs.length
@@ -16,7 +16,9 @@ module.exports = {
     const updatedJobs = jobs.map((job) => {
       const remaining = JobUtils.remainingDays(job)
       const status = remaining <= 0 ? 'done' : 'progress'
-    
+
+      statusCount[status] += 1
+
       return {
         ...job,
         remaining,
