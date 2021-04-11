@@ -1,10 +1,6 @@
 const express = require('express')
 const routes = express.Router()
 
-// EJS by default understands that the files are inside the views folder, 
-// but in the root of the app not inside of another folder
-const views = __dirname + "/views/"
-
 const Profile = {
   data: {
     name: "Raphael",

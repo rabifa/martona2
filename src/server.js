@@ -1,9 +1,13 @@
 const express = require("express")
 const server = express()
 const routes = require("./routes")
+const path = require("path")
 
 // ejs (tamplete engine) config
 server.set('view engine', 'ejs')
+
+// change the location of the views folder
+server.set('views', path.join(__dirname, "views"))
 
 // anable statics files
 server.use(express.static("public"))
