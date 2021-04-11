@@ -13,5 +13,4 @@ routes.post('/job/delete/:id', JobControllers.delete)
 routes.get('/profile', ProfileControllers.index)
 routes.post('/profile', ProfileControllers.update)
 
-
 module.exports = routes
