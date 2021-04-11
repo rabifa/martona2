@@ -1,52 +1,6 @@
 const express = require('express')
 const routes = express.Router()
-
-const Profile = {
-  data: {
-    name: "Raphael",
-    avatar: "https://github.com/rabifa.png",
-    "monthly-budget": 3000,
-    "hours-per-day": 5,
-    "days-per-week": 25,
-    "vacation-per-year": 8,
-    "value-hour": 75
-  },
-
-  controllers: {
-    index(req, res) {
-      return res.render("profile", { profile: Profile.data })
-    },
-
-    update(req, res) {
-      // req.body to receive the form
-      const data = req.body
-
-      // define weeks per year
-      const weeksPerYear = 52
-
-      // remove weeks from vacarions
-      const weeksPerMonth = (weeksPerYear - data["vacation-per-year"]) / 12
-
-      // total hours worked er week
-      const weekTotalHours = data["hours-per-day"] * data["days-per-week"]
-
-      // total hours worked per mounth
-      const mounthlyTotalHours = weekTotalHours * weeksPerMonth
-
-      // value of my hour
-      const valueHour = data["value-hour"] = data["monthly-budget"] / mounthlyTotalHours
-
-      Profile.data = {
-        ...Profile.data,
-        ...req.body,
-        "value-hour": valueHour
-      }
-
-      return res.redirect('/profile')
-    }
-  }
-  
-}
+const ProfileControllers = require('./controllers/ProfileControllers')
 
 const Job = {
   data: [
@@ -184,8 +138,8 @@ routes.post('/job', Job.controllers.save)
 routes.get('/job/:id', Job.controllers.show)
 routes.post('/job/:id', Job.controllers.update)
 routes.post('/job/delete/:id', Job.controllers.delete)
-routes.get('/profile', Profile.controllers.index)
-routes.post('/profile', Profile.controllers.update)
+routes.get('/profile', ProfileControllers.index)
+routes.post('/profile', ProfileControllers.update)
 
 
 module.exports = routes
