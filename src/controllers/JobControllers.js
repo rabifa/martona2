@@ -7,8 +7,8 @@ module.exports = {
     return res.render("job")
   },
 
-  save(req, res) {
-    const jobs = Job.get()
+  async save(req, res) {
+    const jobs = await Job.get()
 
     // req.body receive the form data
     //{ name: '', 'daily-hours': '', 'total-hours': ''}
@@ -25,9 +25,9 @@ module.exports = {
     return res.redirect('/')
   },
 
-  show(req, res) {
-    const jobs = Job.get()
-    const profile = Profile.get()
+  async show(req, res) {
+    const jobs = await Job.get()
+    const profile = await Profile.get()
     const jobId = req.params.id
 
     const job = jobs.find(job => Number(job.id) === Number(jobId))
@@ -41,8 +41,8 @@ module.exports = {
     return res.render("job-edit", {job})
   },
 
-  update(req, res) {
-    const jobs = Job.get()
+  async update(req, res) {
+    const jobs = await Job.get()
     const jobId = req.params.id
 
     const job = jobs.find(job => Number(job.id) === Number(jobId))
@@ -72,8 +72,8 @@ module.exports = {
     return res.redirect('/job/' + jobId)
   },
 
-  delete(req, res) {
-    const jobs = Job.get()
+  async delete(req, res) {
+    const jobs = await Job.get()
     const jobId = req.params.id
 
     Job.delete(jobId)
