@@ -76,7 +76,7 @@ module.exports = {
     const jobs = await Job.get()
     const jobId = req.params.id
 
-    Job.delete(jobId)
+    await Job.delete(jobId)
 
     return res.redirect('/')
   }
