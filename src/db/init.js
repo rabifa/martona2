@@ -46,7 +46,7 @@ const initDb = {
       name,
       daily_hours,
       total_hours,
-      created_at,
+      created_at
     ) VALUES (
         "Pizzaria Guloso",
         2,
@@ -58,7 +58,7 @@ const initDb = {
       name,
       daily_hours,
       total_hours,
-      created_at,
+      created_at
     ) VALUES (
         "OneTwo Project",
         3,
