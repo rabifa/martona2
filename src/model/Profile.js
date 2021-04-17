@@ -3,7 +3,7 @@ let data = {
   avatar: "https://github.com/rabifa.png",
   "monthly-budget": 3000,
   "hours-per-day": 5,
-  "days-per-week": 25,
+  "days-per-week": 5,
   "vacation-per-year": 8,
   "value-hour": 75
 }
