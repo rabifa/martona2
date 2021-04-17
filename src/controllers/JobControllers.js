@@ -8,14 +8,14 @@ module.exports = {
   },
 
   async save(req, res) {
-    const jobs = await Job.get()
+    // const jobs = await Job.get()
 
     // req.body receive the form data
     //{ name: '', 'daily-hours': '', 'total-hours': ''}
-    const lastId = jobs[jobs.length - 1]?.id || 0
+    // const lastId = jobs[jobs.length - 1]?.id || 0
 
-    Job.create({
-      id: lastId + 1,
+    await Job.create({
+      // id: lastId + 1,
       name: req.body.name,
       "daily-hours": req.body["daily-hours"],
       "total-hours": req.body["total-hours"],
