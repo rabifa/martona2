@@ -1,15 +1,5 @@
 const Database = require('../db/config')
 
-// let data = {
-//   name: "Raphael",
-//   avatar: "https://github.com/rabifa.png",
-//   "monthly-budget": 3000,
-//   "hours-per-day": 5,
-//   "days-per-week": 5,
-//   "vacation-per-year": 8,
-//   "value-hour": 75
-// }
-
 module.exports = {
   async get() {
     const db = await Database()
